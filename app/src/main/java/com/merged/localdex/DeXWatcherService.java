@@ -27,7 +27,7 @@ public class DeXWatcherService extends Service implements DisplayManager.Display
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("LocalDeX Auto đang chạy ngầm")
                 .setContentText("Đang lắng nghe kết nối màn hình ngoài/xe ô tô")
-                .setSmallIcon(android.R.drawable.ic_menu_display)
+                .setSmallIcon(android.R.drawable.ic_menu_slideshow)
                 .build();
         startForeground(1, notification);
 
