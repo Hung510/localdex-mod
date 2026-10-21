@@ -36,12 +36,7 @@ public class MainActivity extends AppCompatActivity {
         layout.addView(statusText);
 
         TextView info = new TextView(this);
-        info.setText("
-Cấu hình cố định:
-- Độ phân giải: 1920x1200
-- Mật độ DPI: 180
-- Chế độ: LocalDeX tự động
-");
+        info.setText("\nCấu hình cố định:\n- Độ phân giải: 1920x1200\n- Mật độ DPI: 180\n- Chế độ: LocalDeX tự động\n");
         info.setTextSize(14f);
         layout.addView(info);
 
@@ -71,10 +66,7 @@ Cấu hình cố định:
                     m.setAccessible(true);
                     Process p = (Process) m.invoke(null, new String[]{"sh"}, null, null);
                     java.io.OutputStream os = p.getOutputStream();
-                    os.write("wm size reset
-wm density reset
-exit
-".getBytes());
+                    os.write("wm size reset\nwm density reset\nexit\n".getBytes());
                     os.flush();
                     os.close();
                     p.waitFor();
