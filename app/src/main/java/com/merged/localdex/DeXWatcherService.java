@@ -74,12 +74,10 @@ public class DeXWatcherService extends Service implements DisplayManager.Display
                 };
 
                 for (String cmd : cmds) {
-                    os.write((cmd + "
-").getBytes());
+                    os.write((cmd + "\n").getBytes());
                     os.flush();
                 }
-                os.write("exit
-".getBytes());
+                os.write("exit\n".getBytes());
                 os.flush();
                 os.close();
                 process.waitFor();
@@ -97,10 +95,7 @@ public class DeXWatcherService extends Service implements DisplayManager.Display
                 newProcessMethod.setAccessible(true);
                 Process process = (Process) newProcessMethod.invoke(null, new String[]{"sh"}, null, null);
                 OutputStream os = process.getOutputStream();
-                os.write("wm size reset
-wm density reset
-exit
-".getBytes());
+                os.write("wm size reset\nwm density reset\nexit\n".getBytes());
                 os.flush();
                 os.close();
                 process.waitFor();
